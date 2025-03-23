@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #8a2be2, #5a189a);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2rem; /* Adjust font size for mobile */
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1rem; /* Adjust font size for mobile */
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: white;
+  color: #8a2be2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero button {
+    font-size: 0.9rem;
+  }
+}
