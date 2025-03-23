@@ -1,0 +1,110 @@
+/* Base Club Section Styles */
+.club-container {
+  scroll-snap-type: y mandatory; /* Lock sections while scrolling */
+  overflow-y: scroll; /* Enable vertical scroll */
+  height: 100vh; /* Full screen scroll container */
+}
+
+.club-section {
+  height: 100vh; /* Reduced viewport height */
+  width: 100%; /* Centered smaller section */
+  margin: 40px auto; /* Space between sections */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+  border-radius: 50px; /* Curved edges */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  border: 5px solid rgba(255, 255, 255, 0.5); /* Elegant border */
+  scroll-snap-align: start; /* Snap to start of section */
+}
+
+/* Active Section (for scroll animation) */
+.club-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Club Content Styling */
+.club-content {
+  max-width: 600px;
+  color: white;
+}
+
+.club-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.club-content p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+/* Register Button */
+.register-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.register-btn:hover {
+  background: #ddd;
+  transform: scale(1.1);
+}
+
+/* Individual Club Background Colors with Specific Shadows */
+.ai-section {
+  background: linear-gradient(135deg, #36a2eb, #4b8bda);
+  box-shadow: 0 8px 32px rgba(54, 162, 235, 0.6);
+}
+
+.web-section {
+  background: linear-gradient(135deg, #ff4d4f, #ff6f61);
+  box-shadow: 0 8px 32px rgba(255, 77, 79, 0.6);
+}
+
+.dev-section {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.6);
+}
+
+.cybersec-section {
+  background: linear-gradient(135deg, #8a2be2, #6a1bbf);
+  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .club-section {
+    width: 90%;
+    height: 80vh; /* Increased height for better mobile experience */
+  }
+  .club-content h1 {
+    font-size: 2.5rem;
+  }
+  .club-content p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .club-section {
+    width: 95%;
+    height: 100vh; /* Full viewport height on smaller devices */
+  }
+  .club-content h1 {
+    font-size: 2rem;
+  }
+  .club-content p {
+    font-size: 1rem;
+  }
+}
