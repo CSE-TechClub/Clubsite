@@ -14,21 +14,75 @@ const ClubLeadersCarousel = ({ searchQuery ,showNotification }) => {
     },
     { 
       name: "Jananya K H", 
-      role: "Web Wizards Lead", 
+      role: "Web Wizards Lead ", 
       img: "https://media.licdn.com/dms/image/v2/D5603AQFU18ErvH4aLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1685717116449?e=1748476800&v=beta&t=ThRZSe3-n3FdAIMXtCRQV7PNxp_zTm15DAM1J4jX9Ao", 
       linkedin: "https://www.linkedin.com/in/jananyakh" 
     },
     { 
       name: "Jones Samuel", 
-      role: "Backend Developer", 
+      role: "Backend Developer | Club volunteer", 
       img: "https://media.licdn.com/dms/image/v2/D5635AQEQkWsFwxzjYw/profile-framedphoto-shrink_800_800/B56ZWhubfbHEAg-/0/1742175058306?e=1743325200&v=beta&t=GhATpwarlWY_1zwAL3c1onmgVxSfUNPFDz3vRx5A8Jo", 
       linkedin: "https://www.linkedin.com/in/jonessamuel" 
     },
     { 
       name: "Chinmay L", 
-      role: "Frontend Developer", 
+      role: "Frontend Developer | Club volunteer", 
       img: "https://media.licdn.com/dms/image/v2/D5603AQFoQkq8L7VPyg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729454804974?e=1748476800&v=beta&t=7Ct3aVjzdyEeQU5SaV8S_WcSq81QFM6DWEzqnB4__ow", 
       linkedin: "https://www.linkedin.com/in/chinmayl" 
+    },
+    { 
+      name: "Vidya P B", 
+      role: "Club volunteer", 
+      img: "https://media.licdn.com/dms/image/v2/D5635AQHrwAe4u2NC9w/profile-framedphoto-shrink_800_800/B56ZXEQyPVHQAg-/0/1742754489681?e=1743361200&v=beta&t=j7UCU0OjD1UQJW5Xxta-IvXqOQttwSV8c7S-ypZKj3M", 
+      linkedin: "https://www.linkedin.com/in/vidya-p-b-03955a25b" 
+    },
+    { 
+      name: "James J ", 
+      role: "Club volunteer", 
+      img: "https://media.licdn.com/dms/image/v2/D4E03AQHPdvLL2rCnIw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724487899674?e=1748476800&v=beta&t=-ka_w_Ns_MzXXISjBa0qklgZgCkl60HSCqIEW8DnE38", 
+      linkedin: "https://www.linkedin.com/in/james-j-824780324/" 
+    },
+    { 
+      name: "Sapna Kamthane", 
+      role: "Club volunteer", 
+      img: "https://media.licdn.com/dms/image/v2/D5635AQGGwrsleX6PuA/profile-framedphoto-shrink_800_800/B56ZWj3r5ZGQAg-/0/1742211039200?e=1743361200&v=beta&t=XYaMofbzRs6IPRnsUZgo1wMeA76IWIh3zcnqCXNVPMY", 
+      linkedin: "https://www.linkedin.com/in/sapna-kamthane-0661b5269" 
+    },
+    { 
+      name: "Rudresh Manjunath", 
+      role: "Club volunteer | Phase-Changers Lead", 
+      img: "https://media.licdn.com/dms/image/v2/D5635AQG-89qG5DZL9Q/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1724616225632?e=1743361200&v=beta&t=Cth29fJ2y4tjxNbcKianc7Yj6nxsJra4rOiOTk32fN0", 
+      linkedin: "https://www.linkedin.com/in/rudresh-manjunath21/" 
+    },
+    { 
+      name: "Inchara Manjunath Achar", 
+      role: "Club volunteer ", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQGxpQ9mJ44hyg/profile-displayphoto-shrink_800_800/B56ZWOLAsbGoAc-/0/1741847007973?e=1748476800&v=beta&t=UCvcPpRoUB_cJ2qkQ0c-S3rDKTkx7ejHQhAfRKiYWSk", 
+      linkedin: "https://www.linkedin.com/in/inchara-manjunath-achar-ba9703256/" 
+    },
+    { 
+      name: "Daivik Girish M", 
+      role: "Club volunteer | Organizers ", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQEgqb0fy3B_jw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711790961935?e=1748476800&v=beta&t=2zybmUt28VPlvra1wM0sbdvekzdA5BYvLDApMUJhBiM", 
+      linkedin: "https://www.linkedin.com/in/daivik-girish-m-701b9424b/" 
+    },
+    { 
+      name: "Pragathi S", 
+      role: "Club volunteer", 
+      img: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", 
+      linkedin: "https://www.linkedin.com/in/pragathi-s-9a558b25b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " 
+    },
+    { 
+      name: "Bhavyashree K P", 
+      role: "Club volunteer ", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQHOr3nWo1dInQ/profile-displayphoto-shrink_800_800/B56ZWk9_ENGsAc-/0/1742229471386?e=1748476800&v=beta&t=MnT_CjGK8QB2w-x4blrNFAHw9JClA3hZ_Cee_jK3u04", 
+      linkedin: "https://www.linkedin.com/in/bhavyashree-k-p-4329b6259/" 
+    },
+    { 
+      name: "Chaitra Bai J R", 
+      role: "Club volunteer", 
+      img: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", 
+      linkedin: "https://www.linkedin.com/in/chaitra-bai-j-r-6a859125b" 
     },
   ];
 
