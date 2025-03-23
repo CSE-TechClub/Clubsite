@@ -6,9 +6,30 @@ import "./ClubLeadersCarousel.css"; // Custom styles
 
 const ClubLeadersCarousel = () => {
   const leaders = [
-    { name: "John Doe", role: "AI Avengers Lead", img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Fpremium-ai-image%2Fdramatic-portrait-shot-handsome-man-generative-ai_39610723.htm&psig=AOvVaw0ercRGP8mOcNBeiXWPWXHJ&ust=1742794603458000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCID6qvy9n4wDFQAAAAAdAAAAABAE" },
-    { name: "Jane Smith", role: "Web Wizards Lead", img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpict.ai%2Fimages%2FxG5Vbm%2Fview&psig=AOvVaw0ercRGP8mOcNBeiXWPWXHJ&ust=1742794603458000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCID6qvy9n4wDFQAAAAAdAAAAABAI" },
-    { name: "Mary Johnson", role: "DevOps Lead", img: "https://www.google.com/url?sa=i&url=https%3A%2F%2Feasy-peasy.ai%2Fai-image-generator%2Fimages%2Fmodern-indian-man-sitting-at-white-desk&psig=AOvVaw0ercRGP8mOcNBeiXWPWXHJ&ust=1742794603458000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCID6qvy9n4wDFQAAAAAdAAAAABAQ" },
+    { 
+      name: "Keerthana M", 
+      role: "AI Avengers Lead", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQFchHgvr5EM8g/profile-displayphoto-shrink_800_800/B56ZWOUX19HQAg-/0/1741849466834?e=1748476800&v=beta&t=haOxkAlDMNjhuQoN9-lJNQigWLUxaMe6YzfvUuXyS8Y", 
+      linkedin: "https://www.linkedin.com/in/keerthanam" 
+    },
+    { 
+      name: "Jananya K H", 
+      role: "Web Wizards Lead", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQFU18ErvH4aLQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1685717116449?e=1748476800&v=beta&t=ThRZSe3-n3FdAIMXtCRQV7PNxp_zTm15DAM1J4jX9Ao", 
+      linkedin: "https://www.linkedin.com/in/jananyakh" 
+    },
+    { 
+      name: "Jones Samuel", 
+      role: "Backend Developer", 
+      img: "https://media.licdn.com/dms/image/v2/D5635AQEQkWsFwxzjYw/profile-framedphoto-shrink_800_800/B56ZWhubfbHEAg-/0/1742175058306?e=1743325200&v=beta&t=GhATpwarlWY_1zwAL3c1onmgVxSfUNPFDz3vRx5A8Jo", 
+      linkedin: "https://www.linkedin.com/in/jonessamuel" 
+    },
+    { 
+      name: "Chinmay L", 
+      role: "Frontend Developer", 
+      img: "https://media.licdn.com/dms/image/v2/D5603AQFoQkq8L7VPyg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729454804974?e=1748476800&v=beta&t=7Ct3aVjzdyEeQU5SaV8S_WcSq81QFM6DWEzqnB4__ow", 
+      linkedin: "https://www.linkedin.com/in/chinmayl" 
+    },
   ];
 
   // Slick slider settings
@@ -24,13 +45,14 @@ const ClubLeadersCarousel = () => {
 
   return (
     <div className="club-leaders-carousel">
-      <h2>Club Leaders</h2>
+      <h2>Club Leads & Mentors</h2>
       <Slider {...settings}>
         {leaders.map((leader, index) => (
           <div key={index} className="leader-card">
-            <img src={leader.img} alt={leader.name} />
+            <img src={leader.img} alt={leader.name} className="leader-img" />
             <h4>{leader.name}</h4>
             <p>{leader.role}</p>
+            <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">🔗 LinkedIn</a>
           </div>
         ))}
       </Slider>
