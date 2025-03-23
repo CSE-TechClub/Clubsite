@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  height: 100vh;
   padding: 20px;
   background: linear-gradient(135deg, #8a2be2, #5a189a);
   color: white;
