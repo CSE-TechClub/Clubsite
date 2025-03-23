@@ -3,12 +3,12 @@
   scroll-snap-type: y mandatory; /* Lock sections while scrolling */
   overflow-y: scroll; /* Enable vertical scroll */
   height: 100vh; /* Full screen scroll container */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .club-section {
-  height: 100vh; /* Reduced viewport height */
-  width: 100%; /* Centered smaller section */
-  margin: 40px auto; /* Space between sections */
+  height: 100vh; /* Full viewport height for laptops/desktops */
+  width: 100%; /* Full width for laptop/desktop */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +20,10 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Soft shadow */
   border: 5px solid rgba(255, 255, 255, 0.5); /* Elegant border */
   scroll-snap-align: start; /* Snap to start of section */
+  position: relative;
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  margin: 0; /* No margin for full-screen effect */
+  padding: 20px; /* Some internal padding */
 }
 
 /* Active Section (for scroll animation) */
@@ -30,24 +34,29 @@
 
 /* Club Content Styling */
 .club-content {
+  width: 100%;
   max-width: 600px;
   color: white;
+  z-index: 999;
+  padding: 20px;
 }
 
 .club-content h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive font sizing */
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .club-content p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem); /* Responsive font sizing */
   margin-bottom: 40px;
+  line-height: 1.5;
 }
 
 /* Register Button */
 .register-btn {
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  padding: clamp(10px, 4vw, 15px) clamp(20px, 6vw, 30px);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   background: white;
   color: #333;
   border: none;
@@ -61,50 +70,199 @@
   transform: scale(1.1);
 }
 
-/* Individual Club Background Colors with Specific Shadows */
+/* Shared section styling for background images */
+.ai-section,
+.web-section,
+.dev-section,
+.cybersec-section {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+/* Shared overlay styling */
+.ai-section::before,
+.web-section::before,
+.dev-section::before,
+.cybersec-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Individual section backgrounds */
 .ai-section {
-  background: linear-gradient(135deg, #36a2eb, #4b8bda);
-  box-shadow: 0 8px 32px rgba(54, 162, 235, 0.6);
+  background-image: url('../assets/AI_image.jpg');
+  box-shadow: 0 8px 20px rgba(80, 1, 153, 0.889);
 }
 
 .web-section {
-  background: linear-gradient(135deg, #ff4d4f, #ff6f61);
-  box-shadow: 0 8px 32px rgba(255, 77, 79, 0.6);
+  background-image: url('../assets/Web.jpg');
+  box-shadow: 0 8px 20px rgba(80, 1, 153, 0.889);
 }
 
 .dev-section {
-  background: linear-gradient(135deg, #4caf50, #66bb6a);
-  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.6);
+  background-image: url('../assets/Devops.jpg');
+  box-shadow: 0 8px 20px rgba(80, 1, 153, 0.889);
 }
 
 .cybersec-section {
-  background: linear-gradient(135deg, #8a2be2, #6a1bbf);
-  box-shadow: 0 8px 32px rgba(138, 43, 226, 0.6);
+  background-image: url('../assets/Cyber.jpg');
+  box-shadow: 0 8px 20px rgba(80, 1, 153, 0.889);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Sub club content */
+.sub-club-content {
+  text-align: center;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Adjusted Animations */
+.sub-club-section {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sub-club-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing cursor animation */
+.cursor-blink {
+  display: inline-block;
+  animation: cursor-blink 0.7s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Enhanced Responsive Design */
+/* Large tablets */
+@media (max-width: 1024px) {
   .club-section {
     width: 90%;
-    height: 80vh; /* Increased height for better mobile experience */
-  }
-  .club-content h1 {
-    font-size: 2.5rem;
-  }
-  .club-content p {
-    font-size: 1.2rem;
+    margin: 0 auto;
+    border-radius: 40px;
+    border-width: 4px;
+    height: 90vh;
   }
 }
 
+/* Small tablets */
+@media (max-width: 768px) {
+  .club-container {
+    scroll-snap-type: proximity; /* More forgiving scroll snapping */
+  }
+  
+  .club-section {
+    width: 85%;
+    height: 70vh; /* Shorter height for tablets */
+    border-radius: 30px;
+    border-width: 3px;
+    margin: 20px auto; /* Add space between sections */
+    min-height: 500px; /* Minimum height to ensure content fits */
+  }
+  
+  .club-content {
+    padding: 15px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 576px) {
+  .club-section {
+    width: 90%;
+    height: 60vh; /* Significantly shorter for mobile */
+    border-radius: 25px;
+    border-width: 3px;
+    margin: 15px auto;
+    min-height: 400px; /* Ensure content fits */
+  }
+  
+  .register-btn {
+    padding: 10px 20px;
+  }
+}
+
+/* Small phones */
 @media (max-width: 480px) {
   .club-section {
-    width: 95%;
-    height: 100vh; /* Full viewport height on smaller devices */
+    width: 92%;
+    height: 55vh; /* Compact height for small phones */
+    border-radius: 20px;
+    border-width: 2px;
+    margin: 10px auto;
+    padding: 15px;
+    min-height: 350px; /* Minimum height */
   }
+  
+  .club-content {
+    padding: 10px;
+  }
+  
   .club-content h1 {
-    font-size: 2rem;
+    margin-bottom: 10px;
   }
+  
   .club-content p {
-    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .register-btn {
+    padding: 8px 16px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .club-section {
+    height: 50vh; /* Very compact */
+    min-height: 300px;
+  }
+}
+
+/* Landscape mode on mobile */
+@media (max-height: 500px) {
+  .club-section {
+    height: auto;
+    min-height: 300px;
+    margin: 10px auto;
+  }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .club-container {
+    height: -webkit-fill-available;
+  }
+  
+  @media (max-width: 768px) {
+    .club-section {
+      height: auto;
+    }
   }
 }
