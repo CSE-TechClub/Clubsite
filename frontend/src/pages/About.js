@@ -1,11 +1,12 @@
 import React from 'react';
-import ClubLeadersCarousel from '../components/ClubLeadersCarousel';
 
 const About = () => {
   return (
     <div className="about">
-      <h2>About Our Club</h2>
-      <ClubLeadersCarousel />
+      <h1>About</h1>
+      <p>
+        This is the about page. It is a placeholder for the about page.
+      </p>
     </div>
   );
 };
