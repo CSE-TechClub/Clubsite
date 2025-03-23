@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< Updated upstream
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './pages/About';
 import Hero from './components/Hero';
@@ -18,6 +19,28 @@ const App = () => {
         <Footer />
       </div>
     </Router>
+=======
+import Hero from './components/Hero';
+import AIAvengers from './pages/AIAvengers';
+import WebWizards from './pages/WebWizards';
+import DevDevils from './pages/DevDevils';
+import CybersecScholars from './pages/CybersecScholars';
+import About from './pages/About'; // Importing About page
+import Footer from './components/Footer';
+import './styles/App.css';
+
+const App = () => {
+  return (
+    <div className="main-container">
+      <Hero />
+      <About /> {/* Added About section */}
+      <AIAvengers />
+      <WebWizards />
+      <DevDevils />
+      <CybersecScholars />
+      <Footer />
+    </div>
+>>>>>>> Stashed changes
   );
 };
 

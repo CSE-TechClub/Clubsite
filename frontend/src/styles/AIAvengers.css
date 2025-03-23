@@ -1,0 +1,31 @@
+.club-containerA {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #000000;
+  color: white;
+}
+.club-containerA {
+  background-color: #89bea5; /* Green Theme */
+}
+
+
+.club-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.club-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.club-description {
+  font-size: 1.5rem;
+  max-width: 600px;
+}
