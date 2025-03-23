@@ -1,52 +1,80 @@
-.sub-club-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 20px;
+.sub-club-sections {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Each Club Section */
+.sub-club-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Active Section - When in View */
+.sub-club-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Highlight Animation on Search */
+.sub-club-section.highlight {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+  transition: box-shadow 0.5s ease;
+}
+
+/* Club Content Styling */
+.sub-club-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.sub-club-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.sub-club-content p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+/* Registration Button */
+.register-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.register-btn:hover {
+  background: #ddd;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sub-club-content h1 {
+    font-size: 2.5rem;
   }
-  
-  .sub-club-card {
-    padding: 20px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .sub-club-content p {
+    font-size: 1.2rem;
   }
-  
-  .sub-club-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  .sub-club-content h1 {
+    font-size: 2rem;
   }
-  
-  .sub-club-card p {
+  .sub-club-content p {
     font-size: 1rem;
   }
-
-  .sub-club-card {
-    background: linear-gradient(135deg, rgba(54, 162, 235, 0.1), rgba(255, 99, 132, 0.1));
-  }
-
-  @media (max-width: 480px) {
-    .sub-club-card {
-      padding: 15px;
-    }
-  }
-  
-
-  .sub-club-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .sub-club-card h3 {
-      font-size: 1.2rem;
-    }
-  
-    .sub-club-card p {
-      font-size: 0.9rem;
-    }
-  }
+}

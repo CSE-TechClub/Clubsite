@@ -1,10 +1,10 @@
-import React from "react";
-import Slider from "react-slick"; // Import React Slick
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-import "./ClubLeadersCarousel.css"; // Custom styles
+import React, { useEffect, useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './ClubLeadersCarousel.css';
 
-const ClubLeadersCarousel = () => {
+const ClubLeadersCarousel = ({ searchQuery ,showNotification }) => {
   const leaders = [
     { 
       name: "Keerthana M", 
@@ -32,30 +32,61 @@ const ClubLeadersCarousel = () => {
     },
   ];
 
-  // Slick slider settings
+  const sliderRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  // Find and scroll to the matched leader
+  useEffect(() => {
+    if (searchQuery) {
+      const matchedIndex = leaders.findIndex(
+        (leader) =>
+          leader.name.toLowerCase().includes(searchQuery) ||
+          leader.role.toLowerCase().includes(searchQuery)
+      );
+
+      if (matchedIndex !== -1) {
+        // Scroll to carousel and bring the matched leader to the front
+        carouselRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        sliderRef.current?.slickGoTo(matchedIndex);
+
+        // Highlight the matched card temporarily
+        const matchedCard = document.getElementById(leaders[matchedIndex].id);
+        matchedCard?.classList.add('highlight');
+        setTimeout(() => matchedCard?.classList.remove('highlight'), 3000);
+      }else {
+        showNotification('⚠️ No matching leader found!');
+      }
+    }
+  }, [searchQuery, leaders , showNotification]);
+
   const settings = {
-    dots: true, // Display navigation dots
-    infinite: true, // Enable infinite scrolling
-    speed: 500, // Transition speed
-    slidesToShow: 1, // Show one slide at a time
-    slidesToScroll: 1, // Scroll one slide at a time
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000, // 3 seconds per slide
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
   };
 
   return (
-    <div className="club-leaders-carousel">
+    <div className="club-leaders-carousel" ref={carouselRef}>
       <h2>Club Leads & Mentors</h2>
-      <Slider {...settings}>
-        {leaders.map((leader, index) => (
-          <div key={index} className="leader-card">
-            <img src={leader.img} alt={leader.name} className="leader-img" />
-            <h4>{leader.name}</h4>
-            <p>{leader.role}</p>
-            <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">🔗 LinkedIn</a>
-          </div>
-        ))}
-      </Slider>
+      {leaders.length === 0 ? (
+        <p>No leaders found!</p>
+      ) : (
+        <Slider {...settings} ref={sliderRef}>
+          {leaders.map((leader, index) => (
+            <div key={index} id={leader.id} className="leader-card">
+              <img src={leader.img} alt={leader.name} />
+              <h4>{leader.name}</h4>
+              <p>{leader.role}</p>
+              <a href={leader.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin-link">
+                🔗 LinkedIn
+              </a>
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };
